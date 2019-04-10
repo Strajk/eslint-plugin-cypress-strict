@@ -1,0 +1,11 @@
+# TODO: Simplify
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test:coverage
