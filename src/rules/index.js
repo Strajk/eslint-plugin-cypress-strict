@@ -1,3 +1,5 @@
-module.exports = {
-  "unchained-get": require("./unchained-get"),
+import unchainedGet from "./unchained-get"
+
+export default {
+  "unchained-get": unchainedGet,
 }

@@ -14,5 +14,8 @@ module.exports = function (wallaby) {
     },
 
     testFramework: "jest",
+    compilers: {
+      "**/*.js": wallaby.compilers.babel(),
+    },
   }
 }

@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
-const ruleTester = require("../../common/ruleTester")
-const unchainedGet = require("../unchained-get")
+import ruleTester from "../../common/ruleTester"
+import unchainedGet from "../unchained-get"
 
 const errors = [{ messageId: "unchainedGet" }]
 

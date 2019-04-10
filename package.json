@@ -19,9 +19,15 @@
     "test": "jest",
     "test:coverage": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    }
+  },
   "devDependencies": {
     "@pika/plugin-build-node": "^0.3.14",
     "@pika/plugin-standard-pkg": "^0.3.14",
+    "babel-jest": "^24.7.1",
     "coveralls": "^3.0.2",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
@@ -37,7 +43,12 @@
   "@pika/pack": {
     "pipeline": [
       [
-        "@pika/plugin-standard-pkg"
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "**/__tests__/**/*"
+          ]
+        }
       ],
       [
         "@pika/plugin-build-node"

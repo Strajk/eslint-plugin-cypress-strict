@@ -1,5 +1,5 @@
-const RuleTester = require("eslint").RuleTester
+import { RuleTester } from "eslint"
 
-module.exports = new RuleTester({
+export default new RuleTester({
   // parser: "Change if needed",
 })

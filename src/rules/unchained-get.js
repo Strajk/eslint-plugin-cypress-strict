@@ -15,7 +15,7 @@ function isRootCy (node) {
   return false
 }
 
-module.exports = {
+export default {
   meta: {
     messages: {
       unchainedGet: "Prefer chaining '.get()' directly on 'cy'",
@@ -58,4 +58,4 @@ module.exports = {
       },
     }
   },
-}
+};
