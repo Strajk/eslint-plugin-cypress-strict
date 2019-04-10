@@ -1,10 +1,5 @@
 import unchainedGet from "./unchained-get"
 
-const res = {
+export default {
   "unchained-get": unchainedGet,
 }
-
-// TODO: Make it so this is not needed
-module.exports = res
-
-export default res

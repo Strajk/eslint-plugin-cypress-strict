@@ -1,5 +1,6 @@
 import rules from "./rules"
 
-export default {
-  rules,
-}
+// TODO: Make it so this "coro-moro" is not needed
+const res = { rules }
+module.exports = res
+export default res
