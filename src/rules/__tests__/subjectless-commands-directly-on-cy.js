@@ -15,8 +15,8 @@ describe("subjectlessCommandsDirectlyOnCy", function () {
       { code: "notCy.someMethod().get(1000)" },
     ],
     invalid: [
-      { code: "cy.wait(1).get('h2')", errors },
-      { code: "cy.wait(1).get('h2').wait(2)", errors },
+      { code: "cy.something(1).get('h2')", errors },
+      { code: "cy.something(1).get('h2').something(2)", errors },
     ],
   })
 })
