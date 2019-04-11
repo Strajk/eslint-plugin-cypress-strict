@@ -5,7 +5,7 @@ import selectorsOverCommands from "../selectors-over-commands"
 
 const err = { messageId: "selectorsOverCommands" }
 
-describe("Selectors over commands", function () {
+describe("selectorsOverCommands", function () {
   ruleTester.run("selectors-over-commands", selectorsOverCommands, {
     valid: [
       { code: "cy.get('')" },

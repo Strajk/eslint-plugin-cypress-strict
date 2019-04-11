@@ -1,24 +1,15 @@
-function isRootCy (node) {
-  while (node.type === "CallExpression") {
-    // TODO: Explain
-    if (node.callee.type !== "MemberExpression") return false
+import * as helpers from "./../common/helpers"
 
-    if (
-      node.callee.object.type === "Identifier" &&
-      node.callee.object.name === "cy"
-    ) {
-      return true
-    }
-
-    node = node.callee.object
-  }
-  return false
-}
+const COMMANDS = [
+  "get",
+  "wait",
+  "visit",
+]
 
 export default {
   meta: {
     messages: {
-      unchainedGet: "Prefer chaining '.get()' directly on 'cy'",
+      subjectlessCommandsDirectlyOnCy: "Prefer chaining subject-less commands directly on 'cy'",
     },
   },
   create: context => {
@@ -31,7 +22,7 @@ export default {
 
           if (
             pointer.callee.property.type === "Identifier" &&
-            pointer.callee.property.name === "get"
+            COMMANDS.includes(pointer.callee.property.name)
           ) {
             if (pointer.callee.object.type === "Identifier") {
               if (pointer.callee.object.name === "cy") {
@@ -40,13 +31,13 @@ export default {
                 // notCy.get() – we don't care ¯\_(ツ)_/¯
               }
             } else {
-              if (isRootCy(pointer.callee.object)) {
+              if (helpers.isRootCy(pointer.callee.object)) {
                 context.report({
                   loc: {
                     line: pointer.callee.property.loc.start.line,
                     column: pointer.callee.property.loc.start.column,
                   },
-                  messageId: "unchainedGet",
+                  messageId: "subjectlessCommandsDirectlyOnCy",
                 })
               } else {
                 // notCy.something.get() - we don't care ¯\_(ツ)_/¯
@@ -58,4 +49,4 @@ export default {
       },
     }
   },
-};
+}

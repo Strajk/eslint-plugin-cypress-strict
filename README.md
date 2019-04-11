@@ -7,44 +7,49 @@ Strict & opinionated ESLint rules for writing Cypress tests
 
 ## Installation
 
-You'll first need to install [ESLint](http://eslint.org):
-
 ```
-$ npm i eslint --save-dev
-```
+npx install-peerdeps --dev eslint-config-cypress-strict
 
-Next, install `eslint-plugin-cypress-strict`:
+// Option A: Use config -> will add plugin and use all rules automatically
+"extends": [ "cypress-strict:recommended" ]
 
-```
-$ npm install eslint-plugin-cypress-strict --save-dev
-```
-
-## Usage
-
-Add `cypress-strict` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
-
-```json
-{
-    "plugins": [
-        "cypress-strict"
-    ]
-}
-```
-
-
-Then configure the rules you want to use under the rules section.
-
-```json
-{
-    "rules": {
-        "cypress-strict/rule-name": "error"
-    }
+// Option B: Add plugin and list rules manually
+plugins: [ "cypress-strict" ]
+rules: {
+  "cypress-strict/»rule name«": "error"
 }
 ```
 
 ## Supported Rules
 
-⚒ For now, please check `src/rules` folder
+### CSS Selectors over commands
+
+`cypress-strict/selectors-over-commands`
+
+Prefer whole selectors directly inside `cy.get(»selector«)` instead of using Cypress commands.
+
+**Why?**
+When whole selector is in one string, it's easier to copy-paste it and debug it in Cypress playground / Dev Tools.
+
+| 😐                                    | 🤩                                |
+| ------------------------------------- | --------------------------------- |
+| `cy.get("button").first()`            | `cy.get("button:first")`          |
+| `cy.get("button").eq(3)`              | `cy.get("button:eq(3)")`          |
+| `cy.get("button").not(".unwanted")`   | `cy.get("button:not(.unwanted)")` |
+| `cy.get("»modal«").find(»close btn«)` | `cy.get("»modal« »close btn«")`   |
+| `cy.get("tr").filter(".odd")`         | `cy.get("tr.odd")`                |
+
+
+### Subject-less commands chained directly on cy
+
+`cypress-strict/subjectless-commands-directly-on-cy`
+
+Chained commands can cause impression that they are working with previous results.
+
+`cy.get(".parent").get(".child")` – Looks like it's selecting .child inside .parent
+
+`cy.get("…").wait(5000)` - Looks like it's waiting 5s for the element...
+
 
 ## Contributing
 

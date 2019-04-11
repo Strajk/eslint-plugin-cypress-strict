@@ -1,22 +1,7 @@
-function isRootCy (node) {
-  while (node.type === "CallExpression") {
-    // TODO: Explain
-    if (node.callee.type !== "MemberExpression") return false
-
-    if (
-      node.callee.object.type === "Identifier" &&
-      node.callee.object.name === "cy"
-    ) {
-      return true
-    }
-
-    node = node.callee.object
-  }
-  return false
-}
+import * as helpers from "./../common/helpers"
 
 // https://github.com/cypress-io/cypress/blob/develop/packages/driver/src/cy/commands/traversals.coffee#L5
-const SELECTORS = [
+const COMMANDS = [
   // Traversing up = Allowed
   // "closest"
   // "parent",
@@ -62,9 +47,9 @@ export default {
 
           if (
             pointer.callee.property.type === "Identifier" &&
-            SELECTORS.includes(pointer.callee.property.name)
+            COMMANDS.includes(pointer.callee.property.name)
           ) {
-            if (isRootCy(pointer.callee.object)) {
+            if (helpers.isRootCy(pointer.callee.object)) {
               context.report({
                 loc: {
                   line: pointer.callee.property.loc.start.line,

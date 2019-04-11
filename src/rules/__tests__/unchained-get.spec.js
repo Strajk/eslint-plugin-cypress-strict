@@ -1,12 +1,12 @@
 /* eslint-env jest */
 
 import ruleTester from "../../common/ruleTester"
-import unchainedGet from "../unchained-get"
+import subjectlessCommandsDirectlyOnCy from "../subjectless-commands-directly-on-cy"
 
-const errors = [{ messageId: "unchainedGet" }]
+const errors = [{ messageId: "subjectlessCommandsDirectlyOnCy" }]
 
-describe("Unchained get", function () {
-  ruleTester.run("unchained-get", unchainedGet, {
+describe("subjectlessCommandsDirectlyOnCy", function () {
+  ruleTester.run("subjectless-commands-directly-on-cy", subjectlessCommandsDirectlyOnCy, {
     valid: [
       { code: "cy.get('h1')" },
       { code: "cy.wait(1)" },
