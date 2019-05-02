@@ -1,4 +1,4 @@
-export function isRootCy (node) {
+export function isRootCy (node, propertyCheck) {
   while (node.type === "CallExpression") {
     // TODO: Explain
     if (node.callee.type !== "MemberExpression") return false
@@ -7,7 +7,8 @@ export function isRootCy (node) {
       node.callee.object.type === "Identifier" &&
       node.callee.object.name === "cy"
     ) {
-      return true
+      if (!propertyCheck) return true
+      return propertyCheck(node.callee.property)
     }
 
     node = node.callee.object

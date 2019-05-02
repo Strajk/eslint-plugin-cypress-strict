@@ -49,7 +49,7 @@ export default {
             pointer.callee.property.type === "Identifier" &&
             COMMANDS.includes(pointer.callee.property.name)
           ) {
-            if (helpers.isRootCy(pointer.callee.object)) {
+            if (helpers.isRootCy(pointer.callee.object, x => x.name !== "wrap")) {
               context.report({
                 loc: {
                   line: pointer.callee.property.loc.start.line,

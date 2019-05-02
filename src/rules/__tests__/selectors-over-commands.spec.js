@@ -13,6 +13,9 @@ describe("selectorsOverCommands", function () {
       { code: "cy.get('').siblings()" },
       { code: "cy.get('').filter()" },
 
+      { code: "cy.wrap('').first()" },
+      { code: "cy.wrap('').find('')" },
+
       { code: "notCy.first()" },
     ],
     invalid: [
