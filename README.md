@@ -13,7 +13,7 @@ OR
 yarn add -D eslint-plugin-cypress-strict
 
 // Option A: Use config -> will add plugin and use all rules automatically
-"extends": [ "cypress-strict:recommended" ]
+"extends": [ "plugin:cypress-strict/recommended" ]
 
 // Option B: Add plugin and list rules manually
 plugins: [ "cypress-strict" ]
