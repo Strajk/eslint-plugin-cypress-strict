@@ -23,8 +23,8 @@ describe("selectorsOverCommands", function () {
     invalid: [
       { code: "cy.get('').first()", errors: [ err ] },
 
-      { code: "cy.get('').children('')" },
-      { code: "cy.get('').children('a')" },
+      { code: "cy.get('').children('')", errors: [ err ] },
+      { code: "cy.get('').children('a')", errors: [ err ] },
 
       { code: "cy.get('').not().first()", errors: [err, err] },
       { code: "cy.get('').find().not().eq()", errors: [err, err, err] },

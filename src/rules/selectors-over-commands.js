@@ -50,7 +50,6 @@ export default {
             COMMANDS.includes(pointer.callee.property.name)
           ) {
             if (helpers.isRootCy(pointer.callee.object, x => x.name !== "wrap")) {
-
               // Allow children without arguments
               // TODO: Nicer
               if (
