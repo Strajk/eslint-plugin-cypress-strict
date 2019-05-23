@@ -50,6 +50,14 @@ export default {
             COMMANDS.includes(pointer.callee.property.name)
           ) {
             if (helpers.isRootCy(pointer.callee.object, x => x.name !== "wrap")) {
+
+              // Allow children without arguments
+              // TODO: Nicer
+              if (
+                pointer.callee.property.name === "children" &&
+                pointer.arguments.length === 0
+              ) break
+
               context.report({
                 loc: {
                   line: pointer.callee.property.loc.start.line,

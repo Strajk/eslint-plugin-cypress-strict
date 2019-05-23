@@ -13,6 +13,8 @@ describe("selectorsOverCommands", function () {
       { code: "cy.get('').siblings()" },
       { code: "cy.get('').filter()" },
 
+      { code: "cy.get('').children()" },
+
       { code: "cy.wrap('').first()" },
       { code: "cy.wrap('').find('')" },
 
@@ -20,6 +22,10 @@ describe("selectorsOverCommands", function () {
     ],
     invalid: [
       { code: "cy.get('').first()", errors: [ err ] },
+
+      { code: "cy.get('').children('')" },
+      { code: "cy.get('').children('a')" },
+
       { code: "cy.get('').not().first()", errors: [err, err] },
       { code: "cy.get('').find().not().eq()", errors: [err, err, err] },
       { code: "cy.get('').first().click()", errors: [ err ] },
