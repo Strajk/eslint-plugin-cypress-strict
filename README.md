@@ -8,7 +8,9 @@ Strict & opinionated ESLint rules for writing Cypress tests
 ## Installation
 
 ```
-npx install-peerdeps --dev eslint-plugin-cypress-strict
+npm i -D eslint-plugin-cypress-strict
+OR
+yarn add -D eslint-plugin-cypress-strict
 
 // Option A: Use config -> will add plugin and use all rules automatically
 "extends": [ "cypress-strict:recommended" ]
