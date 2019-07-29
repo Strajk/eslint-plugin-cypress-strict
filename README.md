@@ -14,17 +14,12 @@
 **Install**
 
 ```bash
+# with NPM
 npm i -D eslint-plugin-cypress-strict
-```
 
-<details><summary>… or with Yarn</summary>
-
-```bash
+# or Yarn
 yarn add -D eslint-plugin-cypress-strict
 ```
-
-</details>
-
 **Setup** – adjust your `.eslintrc`
 
 Option A: Via extends – this will add the plugin and use all the rules automatically
@@ -62,15 +57,50 @@ When whole selector is in one string, it's easier to copy-paste it and debug it 
 
 ### Subject-less commands chained directly on cy `cypress-strict/subjectless-commands-directly-on-cy`
 
+**Why?**
 Chained commands can cause impression that they are working with previous results.
 
 `cy.get(".parent").get(".child")` – Looks like it's selecting `.child` inside `.parent`
 
 `cy.get("…").wait(5000)` - Looks like it's waiting 5s for the element...
 
+### "Should be" instead of "should to be" `cypress-strict/no-should-to-be`
+
+**Why?**
+Should to be is [incorrect](https://www.oxfordlearnersdictionaries.com/us/definition/american_english/should) 
+
 
 ---
 
 ## Contributing
 
-🙏 🙏 🙏 Issues/PRs/gratitude welcomed 🙏 🙏 🙏
+🙏 🙏 🙏 Issues/PRs/gratitude is welcome 🙏 🙏 🙏
+
+
+#### Development tips
+
+##### Publish
+
+```
+npx pack publish
+```
+
+##### Link locally
+
+In this project
+
+```
+npx pack build
+cd pkg
+yarn link 
+cd ..
+# after changes
+npx pack build
+```
+
+In dependant projects
+
+```
+yarn link "eslint-plugin-cypress-strict"
+```
+ 
