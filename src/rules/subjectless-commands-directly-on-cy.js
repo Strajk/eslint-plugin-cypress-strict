@@ -4,6 +4,13 @@ const COMMANDS = [
   "get",
   "wait",
   "visit",
+
+  "setCookie",
+  "removeCookie",
+
+  "url",
+
+  "viewport",
 ]
 
 export default {

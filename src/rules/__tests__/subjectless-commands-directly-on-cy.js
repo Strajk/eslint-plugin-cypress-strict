@@ -16,6 +16,8 @@ describe("subjectlessCommandsDirectlyOnCy", function () {
     ],
     invalid: [
       { code: "cy.something(1).get('h2')", errors },
+      { code: "cy.something(1).wait(1000)", errors },
+      { code: "cy.something(1).setCookie()", errors },
       { code: "cy.something(1).get('h2').something(2)", errors },
     ],
   })
