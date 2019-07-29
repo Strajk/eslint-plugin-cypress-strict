@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-cypress-strict",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Strict & opinionated ESLint rules for writing Cypress tests",
   "keywords": [
     "eslint",
