@@ -31,7 +31,7 @@
     "@pika/plugin-build-node": "0.3.16",
     "@pika/plugin-standard-pkg": "0.3.16",
     "babel-jest": "24.8.0",
-    "coveralls": "3.0.3",
+    "coveralls": "3.1.1",
     "eslint": "5.16.0",
     "eslint-config-standard": "12.0.0",
     "eslint-config-strajk": "0.0.4",
